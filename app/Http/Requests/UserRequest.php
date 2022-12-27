@@ -29,7 +29,6 @@ class UserRequest extends FormRequest
             'name'=>["required","min:4"],
             'email'=>["required","min:4"],
             'password'=>["required","min:4"],
-            'level'=>["required"]
         ];
     }
 }

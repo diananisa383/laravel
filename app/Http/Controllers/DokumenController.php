@@ -17,10 +17,10 @@ class DokumenController extends Controller
         $dokumen = new Dokumen ();
         $dokumen->nama = $request->get("nama");
         $dokumen->jenis = $request->get("jenis");
+        $dokumen->file = $request->get("file");
 
-        $dokumen->save();
-
-        return redirect(route("tampil_dokumen", ['id' => $dokumen->id]));
+           $dokumen->save();
+        return redirect(route("tampil_dokumen", ['id' => $dokumen->id])->with('success','Data Imported Successfully.'));
     }
 
     public function tampil($id)
@@ -46,6 +46,12 @@ class DokumenController extends Controller
         $dokumen = Dokumen::find($id);
         $dokumen->nama = $request->get("nama");
         $dokumen->jenis = $request->get("jenis");
+        $dokumen->file = $request->get("file");
+        $filename=time().'.'.$dokumen->getClientOriginalExtension();
+       
+                    $request->file->move('assets',$filename);
+       
+                    $dokumen->file=$filename;
 
         $dokumen->save();
         
@@ -57,4 +63,21 @@ class DokumenController extends Controller
         Dokumen::destroy($id);
         return redirect(route('semua_dokumen'));
     }
+    // 
+// public function uploadpage()
+// {
+    
+//     return view('product');
+
+// }
+
+   public function download(Request $request,$file)
+{
+
+    
+return response()->download(public_path('assets/'.$file));
+}
+
+
+
 }

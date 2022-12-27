@@ -1,19 +1,52 @@
 @extends("blank")
 
-@section("konten")
+@section('konten')
 
-    <form action="{{ route("update_pegawai", ['id' => $id]) }}" method="post">
-        @csrf
-        @method("put")
+<h3>Edit Data</h3>
+  {{-- @foreach($data_user as $user) --}}
 
-        Nama : <input type="text" name="nama"> <br>
-        Alamat : <textarea name="alamat" id="" cols="30" rows="10"></textarea> <br>
-        No Telepon:<input type="text" name="no_telepon"> <br>
-        Jenis Kelamin :<input type="text" name="jenis_kelamin"> <br>
-        Jabatan :<input type="text" name="jabatan"> <br>
-        
-        <button type="submit">Simpan</button>
+@if ($errors ->any () )
+  <div>class= "alert alert-danger">
+    <ul>
+      @foreach ($errors -> all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
+    <form method="post" action="{{route("update_pegawai", ['id' => $id])}}">
+      @csrf
+      @method("post")
+      <input type="hidden" name="id" value="">
+
+      <div class="form-group">
+        <label>Nama </label>
+        <input type="text" name="nama" value="" class="form-control" placeholder="nama" required="">
+      </div>
+
+      <div class="form-group">
+        <label>Alamat</label>
+        <input type="text" name="alamat" value="" class="form-control" placeholder="alamat" required="">
+      </div>
+
+      <div class="form-group">
+        <label>No Telepon</label>
+        <input type="text" name="no_telepon" value="" class="form-control" placeholder="no_telepon" required="">
+      </div>
+
+      <div class="form-group">
+        <label>Jenis Kelamin</label>
+        <input type="text"name="jenis_kelamin" value="" class="form-control" placeholder="jenis_kelamin" required="">
+      </div>
+      <div class="form-group">
+        <label>Jabatan</label>
+        <input type="text"name="jabatan" value="" class="form-control" placeholder="jabatan" required="">
+      </div>
+      
+      <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update </button>
+      </div>
     </form>
-
-
+  {{-- @endforeach --}}
 @endsection

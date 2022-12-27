@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('divisi', function (Blueprint $table) {
             $table->id();
-            $table->string("nama");
-            $table->text("jabatan");
+            $table->string("nama pegawai");
+            $table->text("divisi");
             $table->text("gaji");
             $table->text("lama_bekerja");
             $table->timestamps();

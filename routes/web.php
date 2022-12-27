@@ -13,16 +13,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/edit-user/{id}", [UserController::class,"formEdit"])->name("user_edit");
-Route::put("/update-user/{id}", [UserController::class,"update"])->name("user_update");
-Route::get("/tampil-semua-user",[UserController::class,"tampil"])->name("user_all");
-Route::delete("/hapus-user/{id}",[UserController::class,"hapus"] )->name("user_hapus");
-Route::get("/show-user/{id}",[UserController::class,"show"])->name("user_show");
 
 
 Route::get("/login",[SecurityController::class,"formLogin"])->name("login");
 Route::post("/proses-login",[SecurityController::class,"prosesLogin"])->name("proses_login");
-Route::get("/logout", [SecurityController::class,"logout"])->name("logout");
+Route::get("/input-user", [UserController::class,"formInput"])->name("user_input");
+
 
 Route::get("pegawai/buat", [PegawaiController::class, 'buat'])->name("buat_pegawai");
     Route::post("pegawai/simpan", [PegawaiController::class, 'simpan'])->name("simpan_pegawai");
@@ -59,8 +55,16 @@ Route::get("pegawai/buat", [PegawaiController::class, 'buat'])->name("buat_pegaw
 // Route::post("/user-update", [UserController::class, "update"])->name("user_update")->middleware('auth');
 
 Route::middleware("auth")->group(function() {
-    Route::get("/tampil-semua-user", [UserController::class,"tampil"])->name("user_all");
-    Route::get("/input-user", [UserController::class,"formInput"])->name("user_input");
-    Route::post("/simpan-user", [UserController::class,"simpan"])->name("user_simpan");
     // route atau halaman yang diproteksi
-   });
+    Route::get("/logout", [SecurityController::class,"logout"])->name("logout");
+    
+});
+Route::get("/tampil-semua-user", [UserController::class,"tampil"])->name("user_all");
+
+Route::post("/simpan-user", [UserController::class,"simpan"])->name("user_simpan");
+
+Route::get('/register',[UserController::class,'register'])->name('register');
+Route::get("/edit-user/{id}", [UserController::class,"formEdit"])->name("user_edit");
+Route::put("/update-user/{id}", [UserController::class,"update"])->name("user_update");
+Route::delete("/hapus-user/{id}",[UserController::class,"hapus"] )->name("user_hapus");
+Route::get("/show-user/{id}",[UserController::class,"show"])->name("user_show");

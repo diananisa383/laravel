@@ -7,6 +7,10 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
+public function register(){
+$data['title']= 'register';
+return view ('user_register',$data_user);
+}
 public function tampil(){   //menampilkan halaman user pertama
     $data_user = User::all();
     return view ("tampil-user")
@@ -22,11 +26,10 @@ public function simpan(UserRequest $request )
     $user = new User();
     $user->name = $request->get("name");
     $user->email = $request->get("email");
-    $user->password = $request->get("password");
-    $user->level = $request->get("level");
+    $user->password =  $request->get("password");
     $user->save();
 
-    return redirect(route("user_all"));
+    return redirect(route("login"));
 }
 public function formEdit($id)
 {
@@ -39,7 +42,6 @@ public function update(UserRequest $request, $id )
     $user->name = $request->get("name");
     $user->email = $request->get("email");
     $user->password = $request->get("password");
-    $user->level = $request->get("level");
     $user->save();
 
     return redirect(route("user_all"));

@@ -9,7 +9,8 @@ class Dokumen extends Model
 {
     use HasFactory;
     protected $table = "dokumen";
-
+    protected $fillable = ["nama","jenis","file"] ;
+    
     public function pegawai ()
     {
         return $this -> belongsToMany(Pegawai::class,"pegawai_id");
