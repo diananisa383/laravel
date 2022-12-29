@@ -56,7 +56,7 @@ class KategoriController extends Controller
 
     public function hapus($id)
     {
-        Pegawai::destroy($id);
+        Kategori::destroy($id);
         return redirect(route('semua_kategori'));
     }
 }

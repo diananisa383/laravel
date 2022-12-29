@@ -17,17 +17,17 @@
 
     <form method="post" action="{{route("update_divisi", ['id' => $id])}}">
       @csrf
-      @method("post")
+      @method("put")
       <input type="hidden" name="id" value="">
 
       <div class="form-group">
         <label>Nama Pegawai </label>
-        <input type="text" name="nama" value="" class="form-control" placeholder="nama" required="">
+        <input type="text" name="nama_pegawai" value="" class="form-control" placeholder="nama_pegawai" required="">
       </div>
 
       <div class="form-group">
-        <label>Jabatan</label>
-        <input type="text" name="jabatan" value="" class="form-control" placeholder="jabatan" required="">
+        <label>Divisi</label>
+        <input type="text" name="divisi" value="" class="form-control" placeholder="divisi" required="">
       </div>
 
       <div class="form-group">

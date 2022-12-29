@@ -2,9 +2,9 @@
 
 @section("konten")
 
-    <h1>{{ $divisi->nama}}</h1>
-    {{ $divisi->jabatan }} 
-    {{ $divisi->gaji}}
-    {{ $divisi->lama_bekerja}}
+  Nama Pegawai:  <h1>{{ $divisi->nama_pegawai}}</h1>
+   Divisi: {{ $divisi->divisi }} <br>
+    Gaji:{{ $divisi->gaji}} <br>
+  Lama Bekerja:  {{ $divisi->lama_bekerja}} <br>
     
 @endsection

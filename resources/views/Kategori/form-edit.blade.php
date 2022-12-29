@@ -17,7 +17,7 @@
 
     <form method="post" action="{{route("update_kategori", ['id' => $id])}}">
       @csrf
-      @method("post")
+      @method("put")
       <input type="hidden" name="id" value="">
 
       <div class="form-group">

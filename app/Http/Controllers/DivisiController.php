@@ -15,8 +15,8 @@ class DivisiController extends Controller
     public function simpan(Request $request)
     {
         $divisi = new Divisi ();
-        $divisi->nama = $request->get("nama");
-        $divisi->jabatan = $request->get("jabatan");
+        $divisi->nama_pegawai = $request->get("nama_pegawai");
+        $divisi->divisi = $request->get("divisi");
         $divisi->gaji = $request->get("gaji");
         $divisi->lama_bekerja = $request->get("lama_bekerja");
 
@@ -46,8 +46,8 @@ class DivisiController extends Controller
     public function update(Request $request, $id)
     {
         $divisi = Divisi::find($id);
-        $divisi->nama = $request->get("nama");
-        $divisi->jabatan = $request->get("jabatan");
+        $divisi->nama_pegawai = $request->get("nama_pegawai");
+        $divisi->divisi = $request->get("divisi");
         $divisi->gaji = $request->get("gaji");
         $divisi->lama_bekerja = $request->get("lama_bekerja");
 

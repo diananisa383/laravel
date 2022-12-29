@@ -15,9 +15,9 @@
         {
             Schema::create('dokumen', function (Blueprint $table) {
                 $table->id();
-                $table->string("nama")>nullable();
+                $table->string("nama");
                 $table->text("jenis");
-                $table->string("file")->nullable();
+                $table->string("file");
             $table->timestamps();
         });
     }

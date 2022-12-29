@@ -3,7 +3,7 @@
 @section("konten")
 
     <h1>{{ $dokumen->nama}}</h1>
-    {{ $dokumen->jenis }} 
-    {{ $dokumen->file }} 
+    {{ $dokumen->jenis }} <br>
+    {{ $dokumen->file }} <br>
     
 @endsection

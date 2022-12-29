@@ -19,7 +19,7 @@
             @foreach($data as $divisi)
           <tr>
             <th scope="row">{{$divisi->id}}</th>
-            <td>{{ $divisi->nama }}</td>
+            <td>{{ $divisi->nama_pegawai }}</td>
             <td>{{ $divisi->divisi }}</td>
             <td>{{ $divisi->gaji }}</td>
             <td>{{ $divisi->lama_bekerja }}</td>

@@ -166,12 +166,9 @@
                         <ul aria-expanded="false">
                           <li>
                      
-                              <a href="">Data Dokumen</a>
+                              <a href="">Data riwayat pengunduhan</a>
                           </li>
-                          <li>
-             
-                              <a href="">Kategori Arsip</a>
-                          </li>
+                        
                       </ul>
                       </ul>
                         <!-- </ul>

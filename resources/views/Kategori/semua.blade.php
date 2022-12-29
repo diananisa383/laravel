@@ -24,8 +24,8 @@
      
             <td>
               <a href="{{ route('ubah_kategori', ['id' => $kategori->id]) }}" class="btn btn-primary">Edit</button></a>
-              <a href="{{ route('tampil_pegawai', ['id' => $kategori->id]) }}" class="btn btn-info">Show</button></a>
-              <form action="{{ route('hapus_pegawai', ['id' => $kategori->id]) }}" method="post">
+              <a href="{{ route('tampil_kategori', ['id' => $kategori->id]) }}" class="btn btn-info">Show</button></a>
+              <form action="{{ route('hapus_kategori', ['id' => $kategori->id]) }}" method="post">
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn btn-danger">Hapus</button>
